@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Тести</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+    <h1>Підготовка до екзаменів</h1>
+</header>
+<nav>
+    <a href="index.html">Головна</a>
+    <a href="shpargalky.html">Шпаргалки</a>
+    <a href="tests.html" class="active">Тести</a>
+    <a href="tips.html">Поради</a>
+</nav>
+<main>
+    <section>
+        <h2>Перевір свої знання</h2>
+        <form>
+            <p><strong>1. Яка формула площі кола?</strong></p>
+            <label><input type="radio" name="q1" value="wrong" /> P = 2πr</label><br />
+            <label><input type="radio" name="q1" value="correct" /> S = πr²</label><br />
+            <label><input type="radio" name="q1" value="wrong" /> V = πr³</label><br />
+
+            <p><strong>2. Коли Україна здобула незалежність?</strong></p>
+            <label><input type="radio" name="q2" value="wrong" /> 1989</label><br />
+            <label><input type="radio" name="q2" value="correct" /> 1991</label><br />
+            <label><input type="radio" name="q2" value="wrong" /> 2000</label><br />
+
+            <p><strong>3. Закон Ома формулюється як:</strong></p>
+            <label><input type="radio" name="q3" value="correct" /> I = U / R</label><br />
+            <label><input type="radio" name="q3" value="wrong" /> V = IR</label><br />
+            <label><input type="radio" name="q3" value="wrong" /> F = ma</label><br />
+
+            <br />
+            <button type="button" onclick="checkAnswers()">Перевірити</button>
+        </form>
+        <p id="result"></p>
+    </section>
+</main>
+<footer>
+    &copy; 2025 Kseniia Mazurenko. Всі права захищені.
+</footer>
+
+<script>
+function checkAnswers() {
+    let score = 0;
+    const total = 3;
+    if(document.querySelector('input[name="q1"]:checked')?.value === 'correct') score++;
+    if(document.querySelector('input[name="q2"]:checked')?.value === 'correct') score++;
+    if(document.querySelector('input[name="q3"]:checked')?.value === 'correct') score++;
+
+    const result = document.getElementById('result');
+    result.textContent = `Ваш результат: ${score} з ${total} правильних відповідей.`;
+}
+</script>
+</body>
+</html>
